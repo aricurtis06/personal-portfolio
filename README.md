@@ -1,13 +1,9 @@
-<DOCUTYPE.html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scake=1.0">>
-  <title>Ari's Page<title>
-  </head>
+# 1600-portfolio-fall2020
+## Because Ari Curtis is Super Cool
+### I learned how to do this thing
   
   <link rel="stylesheet" href="styles.css">
-  <body>
+
   <nav>
   <ul>
   <li>About</li>
@@ -20,6 +16,4 @@
   </section>
   <section>Work</section>
   <section>Contact</section>
-  <script src=>
-      </body>
-      </html>
+  
