@@ -1,19 +1,6 @@
-# 1600-portfolio-fall2020
+# Ari's Portfolio
 ## Because Ari Curtis is Super Cool
-### I learned how to do this thing
-  
-  <link rel="stylesheet" href="styles.css">
+### I learned how to do this thing for my dgm 1600 course
 
-  <nav>
-  <ul>
-  <li>About</li>
-  <li>Work</li>
-  <li>contact</li>
-  </ul>
-  </nav>
-  <section id="welcome-section">
-  <h1>About</h1>
-  </section>
-  <section>Work</section>
-  <section>Contact</section>
+ 
   
