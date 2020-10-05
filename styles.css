@@ -1,39 +1,93 @@
-html{
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+*{
+    margin:0;
+    padding:0;
 }
 
-nav{
-    background-color: coral;
-    display: flex;
-    justify-content: flex-end;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+html{
+    box-sizing: border-box;
+    /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+    scroll-behavior: smooth;
 }
  
-    .nav-list a:hover{
-        background: blue;
-    }
 
 body{
     margin: 0;
 }
 
+.nav{
+    display: flex;
+    justify-content: flex-end;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--main-blue);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    z-index:10;
+}
+
+
+#navbar {
+    display:flex;
+    justify-content: flex-end;
+    background-color: rgb(166, 93, 180);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+@media (max-width: 30em){.nav{
+    justify-content: center;
+}
+.nav-list{
+    margin: 0 1rem;
+    }
+}
+
+
+.nav-list a{
+    display: block;
+    font-size: 2.2rem;
+    padding: 2rem;
+}
+.nav-list a:hover{
+    background: blue;
+}
+
 .nav-list{
     display: flex;
-}
-
-li{
     list-style-type: none;
+    margin-right: 2rem;
 }
 
-
-#welcome-section{
-    background-color: antiquewhite;
+.welcome-section{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(62deg, #9884bd 0%, #d89fcc 100%);
+  font-size: x-large;
 }
-projects-section{
+
+.projects-section{
     text-align: center;
     padding: 10rem 2rem;
-    background: #45567d;
+    background: #c99aad;
+}
+
+.projects-section-header{
+    max-width: 640px;
+    margin: 0 auto 6rem auto;
+    border-bottom: 0.2rem solid var(--main-purple);
 }
 
 .projects-grid{
@@ -45,6 +99,72 @@ projects-section{
     margin: 0 auto;
     margin-bottom: 6rem;
 }
+
+@media (max-width: 20em){
+    .projects-section{
+        padding: 6rem 1rem;
+    }
+    .projects-grid{
+        grid-template-columns: 1fr;
+    }
+    .projects-section-header{
+        font-size: 4rem;
+    }
+}
+
+.project{
+    background: var(--main-lilac);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+}
+
+.code{
+    color: var(--main-gray);
+    transition: color 0.3s ease-out;
+}
+
+.project:hover .code{
+    color: rgb(68, 221, 48);
+}
+
+.project-image{
+    height: calc(100% - 7rem);
+    width: 100%;
+    object-fit: cover;
+}
+
+.project-title {
+    font-size: 2.3rem;
+    padding: 2rem 0.5rem;
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+}
+
+.btn-show-all {
+    font-size: 2rem;
+    background: var(--main-gray);
+    transition: 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+    background: var(--main-red);
+}
+.btn-show-all:hover >i {
+    margin-left: 10px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+}
+
+li{
+    list-style-type: none;
+}
+
+
+
 a{
     text-decoration: none;
     color: #f0f0f0;
@@ -54,7 +174,50 @@ a{
     display: flex;
     justify-content: center;
     width: 100%;
+}
     
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 80vh;
+        padding: 0 2rem;
+        background: #9f8ab1;
+      }
+
+      .contact-details{
+          font-size: 2.4rem;
+          text-shadow:  2px 2px 1px #1f1f1f;
+          transition: transform 0.3s ease-out;
+      }
+
+      .contact-details:hover{
+          transform:
+         translateY(8px);
+      }
+
+      @media (max-width: 28.75em) {
+        .contact-links {
+          flex-direction: column;
+          text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 30em) {
+        #welcome-section{
+            background-image: linear-gradient(270deg, #df9370 0%, #c45050 100%);
+    }
+}
+footer{
+    font-size: 15px;
+    display:flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+    background: rgba(205, 205, 206, 0.671);
+    border-top: 4px solod var(--main rgb(104, 129, 167))
 }
 /*.project{
     background: #ccc;
@@ -67,4 +230,3 @@ a{
     width: 100%;
     object-fit:cover;
 }*/
-
