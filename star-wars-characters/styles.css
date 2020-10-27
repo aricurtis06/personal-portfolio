@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mainHeader{
+    background-color: bisque;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+figure{
+    margin: 1rem;
+}
+
+figure img{
+    max-height: 12rem;
+}
