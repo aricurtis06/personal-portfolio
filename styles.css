@@ -3,6 +3,21 @@ html{
     scroll-behavior: smooth;
 }
 
+
+body{
+    margin: 0;
+}
+#navbar {
+    display: flex;
+    justify-content: flex-end;
+    background-color: red;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
 nav{
     background-color: coral;
     display: flex;
@@ -13,11 +28,6 @@ nav{
     .nav-list a:hover{
         background: blue;
     }
-
-body{
-    margin: 0;
-}
-
 .nav-list{
     display: flex;
 }
