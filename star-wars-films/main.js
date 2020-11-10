@@ -1,4 +1,4 @@
-import{ films } from './data/films (1)'
+import{ films } from '../data/films (1)'
 
 const main = document.querySelector('main')
 

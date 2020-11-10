@@ -12,6 +12,9 @@ const modalBackground = document.querySelector('.modal-background')
 closeButton.addEventListener('click', ()=>{
     dialog.classList.toggle("is-active")
 })
+modalBackground.addEventListener('click', ()=>{
+    dialog.classList.toggle("is-active")
+})
 
 function populateNav(starships){
     starships.forEach(starship => {
