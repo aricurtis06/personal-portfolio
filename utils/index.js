@@ -33,3 +33,4 @@ export function getRandomPosition (){
     let randomY = Math.floor(Math.random() * y)
     let randomX = Math.floor(Math.random() * x)
     return [randomX, randomY]
+}
