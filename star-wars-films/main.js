@@ -1,4 +1,5 @@
 import{ films } from '../data/films (1)'
+import {getLastNumber} from '../utils/index.js'
 
 const main = document.querySelector('main')
 
@@ -7,6 +8,8 @@ let figure = document.createElement(' figure')
 let figImg = document.createElement('img')
 figImg.src = `https://starwars-visualguide.com/assets/img/films/${step + 1}.jpg`
 let figCaption = document.createElement('figcaption')
+
+const foundFilm = films.find(film => getLastNumber(film.url) == (step +1))
 figure.textContent = films[step].title
 
 figure.appendChild(figImg)
