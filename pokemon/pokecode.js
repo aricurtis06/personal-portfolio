@@ -8,43 +8,63 @@ async function getAPIData (url){
         console.error(error)
     }
 }
+//new pokemon: pokemon?limit=25&offset=(whatever number)
 
 //now, use the async getAPIData function
 function loadPage (){
-    getAPIData(`https://pokeapi.co/api/v2/pokemon`)
+    getAPIData(`https://pokeapi.co/api/v2/pokemon`).then
     (async (data)=> {
         for (const pokemon of data.results ){
             await getAPIData(pokemon.url).then((pokeData) => {
-                console.log(pokeData)
                 populatePokeCard(pokeData)
             })
         }
     })
 } 
 const pokemonGrid = document.querySelector('.pokemonGrid')
+const loadButton = document.querySelector('button')
+
+loadButton.addEventListener('click', () => {
+    loadPage()
+    loadButton.hidden = true
+})
+
 
 function populatePokeCard(pokemon){
     let pokeScene = document.createElement('div')
     pokeScene.className = 'scene'
     let pokeCard = document.createElement('div')
     pokeCard.className = 'card'
-    let cardFront = document.createElement('div')
-    let frontLabel = document.createElement('p')
-    let frontImage = document.createElement('img')
-    let cardBack = document.createElement('div')
-    let backLabel = document.createElement('p')
+    pokeCard.addEventListener('click', () =>{
+        pokeCard.classList.toggle('is-flipped')
+    })
 
 
-    frontLabel.textContent = pokemon.name
-    frontImage.src- `../images/pokemon/00${pokemon.id}.png`
-    backLabel.textContent = `I'm da back of da card`
-    cardFront.appendChild(frontImage)
-    cardFront.appendChild(frontLabel)
-    cardBack.appendChild(backLabel)
-    pokeCard.appendChild(cardFront)
-    pokeCard.appendChild(cardBack)
+    pokeCard.appendChild(populateCardFront(pokemon))
+    pokeCard.appendChild(populateCardBack(pokemon))
     pokeScene.appendChild(pokeCard)
     pokemonGrid.appendChild(pokeScene)
+}
+
+function populateCardFront(pokemon){
+let cardFront = document.createElement('div')
+cardFront.className = `card__face card__face--front`
+let frontLabel = document.createElement('p')
+let frontImage = document.createElement('img')
+frontLabel.textContent = pokemon.name
+frontImage.src = `../images/pokemon/${getImageFileName(pokemon)}.png`
+cardFront.appendChild(frontImage)
+cardFront.appendChild(frontLabel)
+return cardFront
+}
+
+function populateCardBack(pokemon){
+let cardBack = document.createElement('div')
+cardBack.className = `card__face card__face--back`
+let backLabel = document.createElement('p')
+backLabel.textContent = `I'm the back of the card`
+cardBack.appendChild(backLabel)
+return cardBack
 }
 
 function getImageFileName(pokemon){
@@ -54,4 +74,12 @@ function getImageFileName(pokemon){
         return `0${pokemon.id}`    
     }
 }
-loadPage()
+
+/*function Pokemon(name, height, weight, abilities){
+    this.name = name
+    this.height = height
+    this.weight = weight
+    this.abilities = abilities
+    this.id = 900
+}
+let ario = new Pokemon('ario', 91, 120, ['cry', rest])*/
