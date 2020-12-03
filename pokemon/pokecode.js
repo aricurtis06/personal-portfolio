@@ -117,4 +117,4 @@ function Pokemon(name, height, weight, abilities){
     this.abilities = abilities
     this.id = 900
 }
-let ario = new Pokemon('Ario', 91, 120, ['cry', 'rest', 'read'])
+let ario = new Pokemon('Ario', 91, 120, ['cry', 'rest', 'read'])}
