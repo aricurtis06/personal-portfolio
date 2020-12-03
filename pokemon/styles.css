@@ -38,7 +38,8 @@
 }
 
 .card__face--back{
-    background: blue;
+    background: rgb(53, 58, 59);
+    color: rgb(202, 210, 212);
     transform: rotateY(180deg);
 }
 
