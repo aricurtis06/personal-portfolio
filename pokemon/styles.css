@@ -34,7 +34,7 @@
 }
 
 .card__face--front{
-    background: red;
+    background-image: image(pokefront);
 }
 
 .card__face--back{
@@ -45,4 +45,14 @@
 
 .card.is-flipped{
     transform: rotateY(180deg);
+}
+
+h1{
+    justify-content: center;
+}
+
+body{
+    background: linear-gradient(red, blue);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }

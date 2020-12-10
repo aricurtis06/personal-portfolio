@@ -1,3 +1,5 @@
+const { removeChildren } = require("../utils")
+
 //reusable async function to fetch data from the provided url
 async function getAPIData(url){
     try{
@@ -8,7 +10,8 @@ async function getAPIData(url){
         console.error(error)
     }
 }
-//    pokemon?limit=25
+
+//pokemon?limit=25
 
 //now, use the async getAPIData function
 function loadPage (){
@@ -21,6 +24,26 @@ function loadPage (){
         }
     })
 } 
+console.log(pokeArray)
+
+
+function getImageFileName(pokemon){
+    if (pokemon.id <10){
+        return `00${pokemon.id}`
+    } else if (pokemon.id >9 && pokemon.id < 99){
+        return `0${pokemon.id}`
+    }else if (pokemon,id >99 && pokemon.id <300){
+        return `${pokemon.id}`
+    }
+}
+function pokeNumber(pokemon){
+    if (pokemon.id <10){
+        return `00${pokemon.id}`
+    } else if (pokemon.id >10){
+        return false
+    }
+}
+
 const pokemonGrid = document.querySelector('.pokemonGrid')
 const loadButton = document.querySelector('button')
 const newButton = document.querySelector('#newPokemon')
@@ -36,7 +59,22 @@ newButton.addEventListener('click', ()=>{
     populatePokeCard(createNewPokemon(pokeName))
 })
 
-
+function getImageFileName(pokemon){
+    if (pokemon.id <10){
+        return `00${pokemon.id}`
+    } else if (pokemon.id >9 && pokemon.id < 99){
+        return `0${pokemon.id}`
+    }else if (pokemon,id >99 && pokemon.id <300){
+        return `${pokemon.id}`
+    }
+}
+function pokeNumber(pokemon){
+    if (pokemon.id <10){
+        return `00${pokemon.id}`
+    } else if (pokemon.id >10){
+        return false
+    }
+}
 
 function populatePokeCard(pokemon){
     let pokeScene = document.createElement('div')
@@ -101,14 +139,46 @@ function getBestAccuracy(pokemoves){
         //return mostAccurate.accuracy > move.accuracy ? mostAccurate : move;
     }, {});
 }
+const pokeButton = document.createElement('button')
+pokeButton.textContent= 'Catch em!'
+mainHeader.appendChild(pokeButton)
+
+pokeButton.addEventListener('click', () =>{
+    getAPIData(`https://pokeapi.do/api/v2/pokemon/?limit=25&offset=2`).then
+    (async (data) =>{
+        for (const pokemon of data.results){
+            await getAPIData(pokemon.url).then((pokeData) =>{
+                populatePokeCard(pokeData)
+            })
+        }
+    })
+})
+
 
 function getImageFileName(pokemon){
+    if (pokemon.id <10){
+        return `00${pokemon.id}`
+    } else if (pokemon.id >9 && pokemon.id < 99){
+        return `0${pokemon.id}`
+    }else if (pokemon,id >99 && pokemon.id <300){
+        return `${pokemon.id}`
+    }
+}
+function pokeNumber(pokemon){
+    if (pokemon.id <10){
+        return `00${pokemon.id}`
+    } else if (pokemon.id >10){
+        return false
+    }
+}
+
+/*ImageFileName(pokemon){
     if (pokemon.id < 25){
         return `00${pokemon.id}`
     }else if (pokemon.id > 9 && pokemon.id < 99){
         return `0${pokemon.id}`    
     }
-}
+}*/
 
 function Pokemon(name, height, weight, abilities){
     this.name = name
@@ -118,3 +188,10 @@ function Pokemon(name, height, weight, abilities){
     this.id = 900
 }
 let ario = new Pokemon('Ario', 91, 120, ['cry', 'rest', 'read'])}
+
+
+
+
+
+    
+
