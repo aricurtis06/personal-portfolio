@@ -55,7 +55,7 @@
     width: 100%;
     height: 100vh;
       color: rgb(12, 10, 12);
-      background-image: linear-gradient(135deg, #d6bad6 0%, #27292c 100%);
+      background-image: linear-gradient(135deg, #e0bee0 0%, #614d6d 100%);
       font-size: x-large;
   }
   
@@ -109,7 +109,7 @@
       width: 100%;
       height: 25rem;
       padding: 0 2rem;
-      background: #474b50;
+      background: rgb(184, 162, 214);
     }
   
     .contact-links {
