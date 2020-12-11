@@ -48,7 +48,10 @@
 }
 
 h1{
-    justify-content: center;
+    text-align: center;
+}
+.pokeButton{
+    text-align: center;
 }
 
 body{

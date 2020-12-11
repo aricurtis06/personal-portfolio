@@ -1,5 +1,3 @@
-const { removeChildren } = require("../utils")
-
 //reusable async function to fetch data from the provided url
 async function getAPIData(url){
     try{
@@ -25,7 +23,12 @@ function loadPage (){
     })
 } 
 console.log(pokeArray)
+function addToArray(array, data){
+    array.push(data)
+}
 
+const mainHeader = document.querySelector('.button')
+const pokemonGrid = document.querySelector('.pokemonGrid')
 
 function getImageFileName(pokemon){
     if (pokemon.id <10){
@@ -82,6 +85,7 @@ function populatePokeCard(pokemon){
     let pokeCard = document.createElement('div')
     pokeCard.className = 'card'
     pokeCard.addEventListener('click', () =>{
+        console.log(`you clicked`)
         pokeCard.classList.toggle('is-flipped')
     })
 
