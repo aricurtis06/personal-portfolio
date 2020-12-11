@@ -47,6 +47,7 @@ function pokeNumber(pokemon){
     }
 }
 
+
 const pokemonGrid = document.querySelector('.pokemonGrid')
 const loadButton = document.querySelector('button')
 const newButton = document.querySelector('#newPokemon')
@@ -57,27 +58,11 @@ loadButton.addEventListener('click', () => {
 })
 
 
-newButton.addEventListener('click', ()=>{
+/*newButton.addEventListener('click', ()=>{
     let pokeName = prompt("What's your new Pokemon's name?");
     populatePokeCard(createNewPokemon(pokeName))
-})
+})*/
 
-function getImageFileName(pokemon){
-    if (pokemon.id <10){
-        return `00${pokemon.id}`
-    } else if (pokemon.id >9 && pokemon.id < 99){
-        return `0${pokemon.id}`
-    }else if (pokemon,id >99 && pokemon.id <300){
-        return `${pokemon.id}`
-    }
-}
-function pokeNumber(pokemon){
-    if (pokemon.id <10){
-        return `00${pokemon.id}`
-    } else if (pokemon.id >10){
-        return false
-    }
-}
 
 function populatePokeCard(pokemon){
     let pokeScene = document.createElement('div')
@@ -144,8 +129,8 @@ function getBestAccuracy(pokemoves){
     }, {});
 }
 const pokeButton = document.createElement('button')
-pokeButton.textContent= 'Catch em!'
-mainHeader.appendChild(pokeButton)
+pokeButton.textContent= 'Load Pokemon!'
+//mainHeader.appendChild(pokeButton)
 
 pokeButton.addEventListener('click', () =>{
     getAPIData(`https://pokeapi.do/api/v2/pokemon/?limit=25&offset=2`).then
