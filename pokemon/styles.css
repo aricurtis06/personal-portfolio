@@ -45,6 +45,9 @@
 
 .card.is-flipped{
     transform: rotateY(180deg);
+
+
+    
 }
 header{
     text-align: center;

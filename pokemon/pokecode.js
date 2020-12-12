@@ -91,7 +91,7 @@ cardFront.className = `card__face card__face--front`
 let frontLabel = document.createElement('p')
 let frontImage = document.createElement('img')
 frontLabel.textContent = pokemon.name
-frontImage.src = `../images/pokemon/${getImageFileName(pokemon)}.png`
+frontImage.src = `../images/pokemon/${getImageFileName(pokemon.id)}.png`
 cardFront.appendChild(frontImage)
 cardFront.appendChild(frontLabel)
 pokemonGrid.appendChild(cardFront)
@@ -109,6 +109,7 @@ pokemon.abilities.forEach(ability=> {
     abilityName.textContent = ability.ability.name
     abilityList.appendChild(abilityName)
 })
+
 let movesLabel = document.createElement('h3')
 movesLabel.textContent = 'Stats:'
 let moveAccuracy = document.createElement('h4')
