@@ -46,12 +46,16 @@
 .card.is-flipped{
     transform: rotateY(180deg);
 }
-
-h1{
+header{
     text-align: center;
 }
-.pokeButton{
+h1{
+    font-size: 3rem;
     text-align: center;
+}
+button{
+    padding: 1.7rem;
+    font-size: 1rem;
 }
 
 body{

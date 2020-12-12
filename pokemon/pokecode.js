@@ -27,8 +27,8 @@ function addToArray(array, data){
     array.push(data)
 }
 
-const mainHeader = document.querySelector('.button')
-const pokemonGrid = document.querySelector('.pokemonGrid')
+/*onst mainHeader = document.querySelector('.button')
+const pokemonGrid = document.querySelector('.pokemonGrid')*/
 
 function getImageFileName(pokemon){
     if (pokemon.id <10){
@@ -128,12 +128,12 @@ function getBestAccuracy(pokemoves){
         //return mostAccurate.accuracy > move.accuracy ? mostAccurate : move;
     }, {});
 }
-const pokeButton = document.createElement('button')
-pokeButton.textContent= 'Load Pokemon!'
+//const pokeButton = document.createElement('button')
+//pokeButton.textContent= 'Load Pokemon!'
 //mainHeader.appendChild(pokeButton)
 
-pokeButton.addEventListener('click', () =>{
-    getAPIData(`https://pokeapi.do/api/v2/pokemon/?limit=25&offset=2`).then
+button.addEventListener('click', () =>{
+    getAPIData(`https://pokeapi.do/api/v2/pokemon/?limit=25&offset=0`).then
     (async (data) =>{
         for (const pokemon of data.results){
             await getAPIData(pokemon.url).then((pokeData) =>{
