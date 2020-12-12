@@ -133,7 +133,7 @@ function getBestAccuracy(pokemoves){
 //mainHeader.appendChild(pokeButton)
 
 button.addEventListener('click', () =>{
-    getAPIData(`https://pokeapi.do/api/v2/pokemon/?limit=25&offset=0`).then
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=25&offset=0`).then
     (async (data) =>{
         for (const pokemon of data.results){
             await getAPIData(pokemon.url).then((pokeData) =>{
