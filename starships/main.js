@@ -18,7 +18,7 @@ modalBackground.addEventListener('click', ()=>{
 
 function populateNav(starships){
     starships.forEach(starship => {
-        let anchorWrap = document.createElemement('a')
+        let anchorWrap = document.createElement('a')
         anchorWrap.href= '#'
         anchorWrap.addEventListener('click', event =>{
             let shipName = event.target.textContent
@@ -37,7 +37,7 @@ function populateNav(starships){
 function populateShipView(shipData){
     removeChildren(shipView)
     //use createElement to make new img elements
-    let shupImage = document.createElement('img')
+    let shipImage = document.createElement('img')
     let shipNum = getLastNumber(shipData.url)
     //set their src to url below
     shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`
