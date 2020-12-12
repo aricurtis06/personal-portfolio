@@ -34,8 +34,8 @@ const nbCharacters = people.filter((thing) => {
 
 
 maleButton.addEventListener('click', () => populateDOM(maleCharacters))
-femaleButton.addEventListener('click', () => populateDOM(maleCharacters))
-otherButton.addEventListener('click', () => populateDOM(maleCharacters))
+femaleButton.addEventListener('click', () => populateDOM(femaleCharacters))
+otherButton.addEventListener('click', () => populateDOM(nbCharacters))
 
 function populateDOM(characters){
     removeChildren(mainContent)

@@ -18,8 +18,8 @@ figure.appendChild(figCaption)
 main.appendChild(figure)
 }
 
-/*
- //runs 7 times, with values of step 0-6
+
+//runs 7 times, with values of step 0-6
     let newImg = document.createElement('img') //new image instance
     newImg.src = `https://starwars-visualguide.com/assets/img/films/${step + 1}.jpg` //(step + 1)//set the source of it or nothing will show
     //now append the image to the DOM somehow
@@ -55,4 +55,4 @@ films.forEach(element => {
     main.appendChild(newImg)
     console.log(film.title);
 }
-}) */
+}) 
