@@ -34,7 +34,7 @@
 }
 
 .card__face--front{
-    background-image: image(pokefront);
+    background-image: yellow;
 }
 
 .card__face--back{
@@ -47,7 +47,7 @@
     transform: rotateY(180deg);
 
 
-    
+
 }
 header{
     text-align: center;

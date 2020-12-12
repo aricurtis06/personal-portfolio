@@ -1,6 +1,6 @@
 //reusable async function to fetch data from the provided url
 async function getAPIData(url){
-    try{
+    try {
         const response = await fetch(url)
         const data = await response.json()
         return data
@@ -12,40 +12,19 @@ async function getAPIData(url){
 //pokemon?limit=25
 
 //now, use the async getAPIData function
-function loadPage (){
-    getAPIData(`https://pokeapi.co/api/v2/pokemon`).then
+function loadPage() {
+    getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=25&offset=0`).then
     (async (data)=> {
-        for (const pokemon of data.results ){
+        for (const pokemon of data.results) {
             await getAPIData(pokemon.url).then((pokeData) => {
                 populatePokeCard(pokeData)
             })
         }
     })
 } 
-console.log(pokeArray)
-function addToArray(array, data){
-    array.push(data)
-}
 
-/*onst mainHeader = document.querySelector('.button')
-const pokemonGrid = document.querySelector('.pokemonGrid')*/
 
-function getImageFileName(pokemon){
-    if (pokemon.id <10){
-        return `00${pokemon.id}`
-    } else if (pokemon.id >9 && pokemon.id < 99){
-        return `0${pokemon.id}`
-    }else if (pokemon,id >99 && pokemon.id <300){
-        return `${pokemon.id}`
-    }
-}
-function pokeNumber(pokemon){
-    if (pokemon.id <10){
-        return `00${pokemon.id}`
-    } else if (pokemon.id >10){
-        return false
-    }
-}
+const mainHeader = document.querySelector('.button')
 
 
 const pokemonGrid = document.querySelector('.pokemonGrid')
@@ -53,8 +32,13 @@ const loadButton = document.querySelector('button')
 const newButton = document.querySelector('#newPokemon')
 
 loadButton.addEventListener('click', () => {
+    getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=25&offset=0`).then
+    (async (data) =>{
+data.pokemon.name.forEach(element =>{
+    console.log(element)
+}) 
+    })
     loadPage()
-    loadButton.hidden = true
 })
 
 
@@ -70,14 +54,8 @@ function populatePokeCard(pokemon){
     let pokeCard = document.createElement('div')
     pokeCard.className = 'card'
     pokeCard.addEventListener('click', () =>{
-        console.log(`you clicked`)
         pokeCard.classList.toggle('is-flipped')
     })
-    var card = document.querySelector('.card');
-
-    card.addEventListener( 'click', function() {
-      card.classList.toggle('is-flipped');
-    });
 
     pokeCard.appendChild(populateCardFront(pokemon))
     pokeCard.appendChild(populateCardBack(pokemon))
@@ -86,16 +64,15 @@ function populatePokeCard(pokemon){
 
 
 function populateCardFront(pokemon){
-let cardFront = document.createElement('div')
-cardFront.className = `card__face card__face--front`
-let frontLabel = document.createElement('p')
-let frontImage = document.createElement('img')
-frontLabel.textContent = pokemon.name
-frontImage.src = `../images/pokemon/${getImageFileName(pokemon.id)}.png`
-cardFront.appendChild(frontImage)
-cardFront.appendChild(frontLabel)
-pokemonGrid.appendChild(cardFront)
-return cardFront
+    let cardFront = document.createElement('div')
+    cardFront.className = `card__face card__face--front`
+    let frontLabel = document.createElement('p')
+    let frontImage = document.createElement('img')
+    frontLabel.textContent = pokemon.name
+    frontImage.src = `../images/pokemon/${getImageFileName(pokemon)}.png`
+    cardFront.appendChild(frontImage)
+    cardFront.appendChild(frontLabel)
+    return cardFront
 }
 
 function populateCardBack(pokemon){
@@ -187,3 +164,4 @@ let ario = new Pokemon('Ario', 91, 120, ['cry', 'rest', 'read'])}
 
     
 
+loadPage()
