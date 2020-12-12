@@ -73,7 +73,11 @@ function populatePokeCard(pokemon){
         console.log(`you clicked`)
         pokeCard.classList.toggle('is-flipped')
     })
+    var card = document.querySelector('.card');
 
+    card.addEventListener( 'click', function() {
+      card.classList.toggle('is-flipped');
+    });
 
     pokeCard.appendChild(populateCardFront(pokemon))
     pokeCard.appendChild(populateCardBack(pokemon))
@@ -90,6 +94,7 @@ frontLabel.textContent = pokemon.name
 frontImage.src = `../images/pokemon/${getImageFileName(pokemon)}.png`
 cardFront.appendChild(frontImage)
 cardFront.appendChild(frontLabel)
+pokemonGrid.appendChild(cardFront)
 return cardFront
 }
 
@@ -128,9 +133,9 @@ function getBestAccuracy(pokemoves){
         //return mostAccurate.accuracy > move.accuracy ? mostAccurate : move;
     }, {});
 }
-//const pokeButton = document.createElement('button')
-//pokeButton.textContent= 'Load Pokemon!'
-//mainHeader.appendChild(pokeButton)
+/*const pokeButton = document.createElement('button')
+pokeButton.textContent= 'Load Pokemon!'
+mainHeader.appendChild(pokeButton)*/
 
 button.addEventListener('click', () =>{
     getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=25&offset=0`).then
@@ -177,9 +182,6 @@ function Pokemon(name, height, weight, abilities){
     this.id = 900
 }
 let ario = new Pokemon('Ario', 91, 120, ['cry', 'rest', 'read'])}
-
-
-
 
 
     
