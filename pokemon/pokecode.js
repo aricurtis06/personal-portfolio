@@ -1,3 +1,5 @@
+
+import {removeChildren} from '../utils/index.js'
 //reusable async function to fetch data from the provided url
 async function getAPIData(url){
     try {
@@ -17,7 +19,7 @@ function loadPage() {
     (async (data)=> {
         for (const pokemon of data.results) {
             await getAPIData(pokemon.url).then((pokeData) => {
-                populatePokeCard(pokeData)
+                    populatePokeCard(pokeData)
             })
         }
     })
@@ -39,6 +41,7 @@ data.pokemon.name.forEach(element =>{
 }) 
     })
     loadPage()
+    removeChildren(pokeCard)
 })
 
 
@@ -115,16 +118,7 @@ function getBestAccuracy(pokemoves){
 pokeButton.textContent= 'Load Pokemon!'
 mainHeader.appendChild(pokeButton)*/
 
-button.addEventListener('click', () =>{
-    getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=25&offset=0`).then
-    (async (data) =>{
-        for (const pokemon of data.results){
-            await getAPIData(pokemon.url).then((pokeData) =>{
-                populatePokeCard(pokeData)
-            })
-        }
-    })
-})
+
 
 
 function getImageFileName(pokemon){
