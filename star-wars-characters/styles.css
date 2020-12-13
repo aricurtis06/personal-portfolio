@@ -2,20 +2,28 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+
+    background-color: lightslategray;
+}
 
 .mainHeader{
-    background-color: bisque;
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
+button{
+    padding: 2rem;
+    font-size: 1rem;
+    background-color: lightgoldenrodyellow;
+}
+
 #main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
 }
 
 figure{
@@ -24,4 +32,16 @@ figure{
 
 figure img{
     max-height: 12rem;
+}
+
+figcaption{
+    text-align: center;
+    background-color: lightyellow;
+}
+
+h1{
+    text-align: center;
+    font-style: italic;
+    font-size: 3rem;
+
 }

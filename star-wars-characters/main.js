@@ -3,7 +3,6 @@ import{ people } from '../data/people.js'
 import {removeChildren, getLastNumber} from '../utils/index.js'
 
 const mainContent = document.querySelector('#main')
-populateDOM(people)
 
 const mainHeader = document.createElement('header')
 mainHeader.className = 'mainHeader'
@@ -17,13 +16,13 @@ const femaleButton = document.createElement ('button')
 femaleButton.textContent = 'Female Characters'
 mainHeader.appendChild(femaleButton)
 
-const nbButton = document.createElement ('button')
-maleButton.textContent = 'Other Characters'
-mainHeader.appendChild(nbButton)
+const otherButton = document.createElement ('button')
+otherButton.textContent = 'Other Characters'
+mainHeader.appendChild(otherButton)
 
 const maleCharacters = people.filter((person) => person.gender === 'male')
 const femaleCharacters = people.filter((person) => person.gender === 'female')
-const nbCharacters = people.filter((thing) => {
+const otherCharacters = people.filter((thing) => {
     if (thing.gender === 'n/a' ||
         thing.gender === 'none' ||
         thing.gender === 'hermaphrodite'
@@ -35,16 +34,16 @@ const nbCharacters = people.filter((thing) => {
 
 maleButton.addEventListener('click', () => populateDOM(maleCharacters))
 femaleButton.addEventListener('click', () => populateDOM(femaleCharacters))
-otherButton.addEventListener('click', () => populateDOM(nbCharacters))
+otherButton.addEventListener('click', () => populateDOM(otherCharacters))
 
 function populateDOM(characters){
     removeChildren(mainContent)
 characters.forEach((element)=> {
-        const charFigure = document.createElement('figure')
-    const chatImg = document.createElement('img')
+    const charFigure = document.createElement('figure')
+    const charImg = document.createElement('img')
     let charNum = getLastNumber(element.url)
-    charImg.src=`https://starwars-visualguide.com/assets/img/characters/1.jpg`
-    charImg.addEventListener('error',()=> charImg.hidden = true)
+    charImg.src=`https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
+    charImg.addEventListener('error', () => charImg.hidden = true)
     const charCaption = document.createElement('figcaption')
     charCaption.textContent= element.name
 
