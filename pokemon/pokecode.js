@@ -1,5 +1,4 @@
 
-import {removeChildren} from '../utils/index.js'
 //reusable async function to fetch data from the provided url
 async function getAPIData(url){
     try {
@@ -19,14 +18,13 @@ function loadPage() {
     (async (data)=> {
         for (const pokemon of data.results) {
             await getAPIData(pokemon.url).then((pokeData) => {
-                    populatePokeCard(pokeData)
+                 populatePokeCard(pokeData)
             })
         }
     })
 } 
 
 
-const mainHeader = document.querySelector('.button')
 
 
 const pokemonGrid = document.querySelector('.pokemonGrid')
@@ -41,7 +39,6 @@ data.pokemon.name.forEach(element =>{
 }) 
     })
     loadPage()
-    removeChildren(pokeCard)
 })
 
 
@@ -158,4 +155,3 @@ let ario = new Pokemon('Ario', 91, 120, ['cry', 'rest', 'read'])}
 
     
 
-loadPage()
