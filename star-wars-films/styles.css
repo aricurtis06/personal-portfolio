@@ -7,13 +7,26 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: rgb(18, 48, 26);
 }
 
 figure{
     margin: 1rem;
+    border: solid 4px rgb(236, 207, 211);
 }
 
 figcaption{
     text-align: center;
-    background-color: rgb(34, 37, 71);
+    font-size: 2rem;
+    color: rgb(236, 207, 211);
+    background-color: black;
+    padding: 25px;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+    color: yellow;
+    background-color: black;
+    padding: 1rem;
 }
